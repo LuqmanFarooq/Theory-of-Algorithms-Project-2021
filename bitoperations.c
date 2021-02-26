@@ -19,7 +19,10 @@ void bin_print(unsigned int i)
 // standard main signature
 int main(int argc, char *argv[])
 {
-
+    for (int i=0; i < argc; i++) {
+        printf("%s\n",argv[i]);
+    }
+    return 0;
     // set i to a literal value
     unsigned int i = 0xffffffff; // 0xf1; // 241 // 4294967295
 
