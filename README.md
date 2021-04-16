@@ -22,7 +22,7 @@ In a similar manner if you have an integer, say 123, and mod by 10 the result wo
 Consider a simple example function: 'OR'. If you apply that to your input data of 1 and 0, it yields 1. But now, if you know the answer is '1', how do you back out the original data? You can't. It could have been 1,1 or maybe 0,1, or maybe 1,0.
 
 ### Example 3
-SHA-512 is specified for input strings of up to 18446744073709551615 bits; there are 2^18446744073709551616-1 possible inputs, but since the output is always a sequence of 512 bits, SHA-512 has only 2^512 possible outputs. Any distinct inputs must necessarily result in the same output. Therefore, for a given output of SHA-512, it is not possible to unambiguously recover the input which was used, but, possibly, it might be possible to compute an input which yields the given output value.
+SHA-512 is specified for input strings of up to 18446744073709551615 bits; there are 2^18446744073709551616-1 possible inputs, but since the output is always a sequence of 512 bits, SHA-512 has only 2^128 possible outputs. Any distinct inputs must necessarily result in the same output. Therefore, for a given output of SHA-512, it is not possible to unambiguously recover the input which was used, but, possibly, it might be possible to compute an input which yields the given output value.
 
 # References
 1. [*Secure Hash Standard*, Quynh H. Dang,<br> https://www.nist.gov/publications/secure-hash-standard](https://www.nist.gov/publications/secure-hash-standard)
