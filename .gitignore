@@ -3,6 +3,8 @@ bitoperations
 args
 funcs
 preproc
+endian
+sha256
 # Prerequisites
 *.d
 
