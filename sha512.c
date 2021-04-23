@@ -194,7 +194,12 @@ int main(int argc, char *argv[]) {
     FILE *f;
     // Open file from command line for reading.
     f = fopen(argv[1], "r");
-
+    
+    // error handling if file doesn't exist or user enters wrong file name
+    if (f == NULL) {
+   
+      printf("File Does not exist please check file name and try again\n");
+   } else {
     // Calculate the SHA256 of f.
     sha512(f, H);
 
@@ -205,6 +210,6 @@ int main(int argc, char *argv[]) {
 
     // Close the file.
     fclose(f);
-
+   }
     return 0;
 }
