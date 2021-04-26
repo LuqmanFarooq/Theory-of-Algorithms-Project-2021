@@ -189,12 +189,22 @@ int main(int argc, char *argv[]) {
         0x6a09e667f3bcc908, 0xbb67ae8584caa73b, 0x3c6ef372fe94f82b, 0xa54ff53a5f1d36f1,
         0x510e527fade682d1, 0x9b05688c2b3e6c1f, 0x1f83d9abfb41bd6b, 0x5be0cd19137e2179
     };
-
+    // command line arguments error handling
+    // if user enter more than 2 arguments
+    if (argc > 2) {
+        printf("Too many arguments supplied\n");
+    }
+    // if user enters less than 2 arguments
+    else if (argc < 2) {
+        printf("One argument expected\n");
+    }
+    else
+    {
     // File pointer for reading.
     FILE *f;
     // Open file from command line for reading.
     f = fopen(argv[1], "r");
-    
+
     // error handling if file doesn't exist or user enters wrong file name
     if (f == NULL) {
    
@@ -211,5 +221,6 @@ int main(int argc, char *argv[]) {
     // Close the file.
     fclose(f);
    }
+}// argc handling else
     return 0;
 }
