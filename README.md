@@ -8,7 +8,10 @@ SHA-512 may be used to hash a message, M, having a length of l bits, where 0 <= 
 2. Eight working variables of 64 bits each.
 3. A hash value of eight 64-bit words.
 The final result of SHA-512 is a 512-bit message digest.
+## Why SHA-512 is Important
+SHA-512 is an important hashing algorithm because It provides strong resistance to collision and preimage attacks, and is assumed to remain secure in the dawning era of quantum computers. As it produces a 512-bit digest so, it provides 256 bits of security against collisions.
 
+Sha-512 is secure for most common attack e.g A brute force search for finding a message that corresponds to a given digest of length L using brute force would require 2^L evaluations, which makes SHA-512 a lot safer against these kinds of attacks [2].
 ## Why can't we reverse the SHA512 algorithm to retrieve the original message from a hash digest?
 SHA-512 is one-way function which means given a hash of an input, no one knows how to find the input better than guessing, and the world's best cryptographers have tried.
 SHA-512 is not encrypted rather it is hashed and hashes are one way functions they cannot be reversed.Hash functions can not be decrypted also in sense that there are infinitively (or nearly infinitively) many inputs that give the same output (since the size of input is arbitrary or nearly arbitrary and length of output is fixed), so you'll never know which one is the "right" one [8] [9].
