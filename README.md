@@ -51,10 +51,23 @@ Cryptographic hashes (like SHA2, SHA3, BLAKE2) are considered quantum-safe [13]:
 - Quantum computers might find hash collisions in ∛2^256 operations (see the BHT algorithm), but this is disputed [12]
 - On theory it might take 2^85 quantum operations to find SHA256 / SHA3-256 collision, but in practice it may cost significantly more.
 
-### Conclusion: 
+#### Conclusion: 
 - SHA256 / SHA3-256 are most probably quantum-safe
 - SHA384, SHA512 and SHA3-384, SHA3-512 are quantum-safe
 
+## How difficult is it to find a hash digest beginning with at least twelve zeros?
+Difficulty is a measure of how difficult it is to find a hash below a given target and the Bitcoin network has a global block difficulty. Valid blocks must have a hash below this target [15].
+The more number of leading zeros means more difficulty e.g
+### Example 1
+A hash is only three digits long. If there is no leading zero ("999") then there are a thousand possible numbers (0 - 999) that are lower than the hash. If there is ONE leading zero ("099"), there are now only one hundred possible numbers lower than the hash. If there are TWO leading zeros ("009") there are now only ten possible numbers lower than the hash.Mining in part guesses a number and sees if it's lower than the hash. Thus, the more leading zeros there are, the fewer numbers will be correctly guessed, and the longer it will take to try again and find another.
+### Difficulty with 12 leading zeros
+For calculating difficulty in SHA-512 First we model SHA-512 as a uniform random function and start hashing values [14].
+- We expected that we will get one leading zero in 2^4 random hash values
+- We expected that we will get two leading zero in 2^8 random hash values
+- We expected that we will get three leading zero in 2^12 random hash values
+- and so on
+- We would expect about 1 in 2^48 values to have a hash-value with 12 hex zeroes at the beginning.
+From that we can say that the difficulty to find a hash disgest beginning with at least 12 zero is expected in (2^512 / 2^4.k) values.
 
 # References
 1. [*Secure Hash Standard*, Quynh H. Dang,<br> https://www.nist.gov/publications/secure-hash-standard](https://www.nist.gov/publications/secure-hash-standard)
@@ -70,6 +83,8 @@ Cryptographic hashes (like SHA2, SHA3, BLAKE2) are considered quantum-safe [13]:
 11. [*Bitcoin and quantum computing *,<br> https://arxiv.org/ftp/arxiv/papers/1711/1711.04235.pdf](https://arxiv.org/ftp/arxiv/papers/1711/1711.04235.pdf)
 12. [*Quantum Dispute*,<br> http://cr.yp.to/hash/collisioncost-20090823.pdf](http://cr.yp.to/hash/collisioncost-20090823.pdf)
 13. [*Quantum hashes*,<br> https://cryptobook.nakov.com/quantum-safe-cryptography](https://cryptobook.nakov.com/quantum-safe-cryptography)
+14. [*12 leading zero Difficulty*,<br> https://crypto.stackexchange.com/questions/89690/sha-512-how-difficult-is-it-to-find-a-hash-digest-beginning-with-at-least-twel](https://crypto.stackexchange.com/questions/89690/sha-512-how-difficult-is-it-to-find-a-hash-digest-beginning-with-at-least-twel)
+15. [*Mining Difficulty*,<br> https://en.bitcoin.it/wiki/Difficulty](https://en.bitcoin.it/wiki/Difficulty)
 
 
 
