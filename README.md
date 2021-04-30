@@ -12,6 +12,13 @@ The final result of SHA-512 is a 512-bit message digest.
 SHA-512 is an important hashing algorithm because It provides strong resistance to collision and preimage attacks, and is assumed to remain secure in the dawning era of quantum computers. As it produces a 512-bit digest so, it provides 256 bits of security against collisions.
 
 Sha-512 is secure for most common attack e.g A brute force search for finding a message that corresponds to a given digest of length L using brute force would require 2^L evaluations, which makes SHA-512 a lot safer against these kinds of attacks [2].
+
+## Compilation Instructions
+1. Clone the repository and Navigate to the root directory of the repository
+2. Open Command Prompt here and enter the commant make
+3. Open the input.txt file and replace its contents with the desired string and save it and then close it.
+4. Then enter the commant "./tests.sh" to run the program and tests on it.
+    - if it produces an error such as "Permission denied" then enter "chmod u+x tests.sh" and again run "./tests.sh".
 ## Why can't we reverse the SHA512 algorithm to retrieve the original message from a hash digest?
 SHA-512 is one-way function which means given a hash of an input, no one knows how to find the input better than guessing, and the world's best cryptographers have tried.
 SHA-512 is not encrypted rather it is hashed and hashes are one way functions they cannot be reversed.Hash functions can not be decrypted also in sense that there are infinitively (or nearly infinitively) many inputs that give the same output (since the size of input is arbitrary or nearly arbitrary and length of output is fixed), so you'll never know which one is the "right" one [8] [9].
@@ -57,6 +64,7 @@ Cryptographic hashes (like SHA2, SHA3, BLAKE2) are considered quantum-safe [13]:
 
 ## How difficult is it to find a hash digest beginning with at least twelve zeros?
 Difficulty is a measure of how difficult it is to find a hash below a given target and the Bitcoin network has a global block difficulty. Valid blocks must have a hash below this target [15].
+The actual hash difficulty is not about the leading zeros. It is about finding a hash less than the hash target set by the network. However, this is approximately about finding a hash having a specific number of leading zeros.
 The more number of leading zeros means more difficulty e.g
 ### Example 1
 A hash is only three digits long. If there is no leading zero ("999") then there are a thousand possible numbers (0 - 999) that are lower than the hash. If there is ONE leading zero ("099"), there are now only one hundred possible numbers lower than the hash. If there are TWO leading zeros ("009") there are now only ten possible numbers lower than the hash.Mining in part guesses a number and sees if it's lower than the hash. Thus, the more leading zeros there are, the fewer numbers will be correctly guessed, and the longer it will take to try again and find another.
